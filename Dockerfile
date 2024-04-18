@@ -9,7 +9,10 @@ RUN apt update && apt install -y \
     cmake\
     build-essential \
     cppcheck \
-    lcov
+    lcov \
+    clang-tidy \
+    clang-format \
+    libhdf5-dev
 
 #Install MKL
 RUN wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null && \
@@ -17,7 +20,8 @@ RUN wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRO
     apt update && \
     apt-get install -y  intel-oneapi-mkl-devel-2023.1.0 \
     cppcheck
-
+#Install Armadillo and Boost
+RUN apt-get install -y libboost-dev libarmadillo-dev
 #Clean up
 RUN    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* 
 #Build GTEST

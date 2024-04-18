@@ -27,4 +27,4 @@ jobs:
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ergoregion/armadilloBuildTools:testing
+          tags: ergoregion/armadillo_build_tools:testing

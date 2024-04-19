@@ -27,7 +27,7 @@ jobs:
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
-            return context.payload.ref.replace(/refs\/tags\//, '').replace(", '');
+            return context.payload.ref.replace(/refs\/tags\//, '').replace('"', '');
       -
         name: Build and push
         uses: docker/build-push-action@v4

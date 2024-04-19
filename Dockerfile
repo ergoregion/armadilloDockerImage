@@ -11,8 +11,7 @@ RUN apt update && apt install -y \
     cppcheck \
     lcov \
     clang-tidy \
-    clang-format \
-    libhdf5-dev 
+    clang-format 
 
 #Install MKL
 #RUN wget -O- https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB | gpg --dearmor | tee /usr/share/keyrings/oneapi-archive-keyring.gpg > /dev/null && \

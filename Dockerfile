@@ -22,7 +22,7 @@ RUN apt update && apt install -y \
 
 #Install openBLAS and Boost, then armadillo
 
-RUN apt-get install -y libboost-dev libopenblas-dev liblapack-dev libhdf5-dev && \
+RUN apt-get install -y libboost-dev libopenblas-dev liblapack-dev libsuperlu-dev libhdf5-dev && \
     mkdir -p /armadillo/src && \
     cd /armadillo/src && \
     wget --no-check-certificate http://sourceforge.net/projects/arma/files/armadillo-10.8.2.tar.xz && \

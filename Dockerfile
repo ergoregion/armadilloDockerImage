@@ -28,6 +28,7 @@ RUN apt-get install -y libboost-dev libopenblas-dev liblapack-dev && \
     cd /armadillo/src && \
     wget --no-check-certificate http://sourceforge.net/projects/arma/files/armadillo-10.8.2.tar.xz && \
     tar xf armadillo-10.8.2.tar.xz && \
+    cd armadillo-10.8.2 && \
     mkdir build && \
     cd build && \
     cmake \

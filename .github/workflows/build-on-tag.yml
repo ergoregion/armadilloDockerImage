@@ -21,9 +21,16 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Extract tag name
+        id: tag
+        uses: actions/github-script@0.2.0
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            return context.payload.ref.replace(/refs\/tags\//, '').replace(/\"/, '');
       -
         name: Build and push
         uses: docker/build-push-action@v4
         with:
           push: true
-          tags: ergoregion/armadillo_build_tools:${GITHUB_REF#refs/tags/}
+          tags: ergoregion/armadillo_build_tools:${{ steps.tag.outputs.result }}
